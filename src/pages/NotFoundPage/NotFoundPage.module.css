@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+}
+.text {
+    font-weight: bold;
+    font-size: 26px;
+}
+.link {
+    font-size: 16px;
+}
+.link:hover {
+    color: #97f31c;
+}

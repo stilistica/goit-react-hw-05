@@ -1,18 +1,16 @@
 .loadMore {
-    margin-top: 20px;
-    margin-bottom: 50px;
-    padding: 8px 15px;
-    font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  padding: 8px 15px;
+  font-weight: bold;
 
-    background-color: white;
-    color: #ba1bba;
-    border: 2px #ba1bba solid;
-    border-radius: 5px;
+  background-color: white;
+  color: #ba1bba;
+  border: 2px #ba1bba solid;
+  border-radius: 5px;
 }
 .loadMore:hover {
-    background-color: #97f31c;
-    color: black;
-    border: 2px black solid;
+  background-color: #97f31c;
+  color: black;
+  border: 2px black solid;
 }
-
-

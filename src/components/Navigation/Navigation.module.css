@@ -1,24 +1,24 @@
 .header {
-    padding: 20px;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    position: sticky;
-    top:0;
+  padding: 20px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
 }
-.nav{
-    display: flex;
-    gap:20px;
+.nav {
+  display: flex;
+  gap: 20px;
 }
-.link{
-    color: white;
-    font-weight: bold;
-    font-size: 26px;
-    text-decoration: none;
+.link {
+  color: white;
+  font-weight: bold;
+  font-size: 26px;
+  text-decoration: none;
 }
 .link:hover {
-    color: #97f31c;
+  color: #97f31c;
 }
-.active{
-    color: #ba1bba;
+.active {
+  color: #ba1bba;
 }

@@ -5,7 +5,7 @@ function LoadMoreBtn({page, setPage}) {
         setPage(page + 1);
     };
     return (
-        <button onClick={onClickLoadMore}>
+        <button onClick={onClickLoadMore} className={s.loadMore}>
             Load More
         </button>
     );

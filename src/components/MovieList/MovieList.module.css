@@ -1,0 +1,15 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.item {
+    padding-bottom: 5px;
+}
+.title {
+    font-weight: normal;
+    color: #ba1bba;
+}
+.title:hover {
+    color: #97f31c;
+}

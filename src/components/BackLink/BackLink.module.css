@@ -1,0 +1,15 @@
+.container {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.backLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-weight: bold;
+    color: #ba1bba;
+}
+.backLink:hover {
+    color: #97f31c;
+}

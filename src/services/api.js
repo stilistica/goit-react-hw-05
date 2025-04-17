@@ -19,7 +19,7 @@ export const fetchTrendingMovie = async (page, signal) => {
 }
 
 export const fetchSearchMovie = async ( query, page, signal) => {
-    const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`,
         {
             ...options,
             signal

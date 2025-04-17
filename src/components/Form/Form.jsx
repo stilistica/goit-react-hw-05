@@ -3,10 +3,10 @@ import s from './Form.module.css'
 function Form({handleChangeQuery}) {
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newQuery = e.target.elements.query.value;
+        const newQuery = e.target.elements.query.value.trim();
 
         if (newQuery.trim() === '') {
-            console.error('Please enter a valid query.');
+            alert('Please enter a valid query.');
             e.target.reset();
             return;
         }
@@ -14,15 +14,16 @@ function Form({handleChangeQuery}) {
         e.target.reset();
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={s.form}>
             <input
                 type="text"
                 autoComplete="off"
                 autoFocus
                 placeholder="Search movies"
                 name="query"
+                className={s.input}
             />
-            <button type="submit">Submit</button>
+            <button type="submit" className={s.btn}>Submit</button>
         </form>
     );
 }

@@ -8,8 +8,8 @@ function MovieReviews() {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        const abortController = new AbortController();
         if (!movieId) return;
+        const abortController = new AbortController();
         const getData = async () => {
             try {
                 const data = await fetchReviews(movieId, abortController.signal);
@@ -26,11 +26,11 @@ function MovieReviews() {
         };
     }, [movieId]);
     return (
-        <ul>
+        <ul className={s.list}>
             {reviews.length > 0
                 ? reviews.slice(0, 5).map((review) => (
-                    <li key={review.id}>
-                        <h3>Author: {review.author}</h3>
+                    <li key={review.id} className={s.item}>
+                        <h3 className={s.author}>Author: {review.author}</h3>
                         <p>{review.content}</p>
                     </li>))
                 : <p>We don't have any reviews for this movie</p>

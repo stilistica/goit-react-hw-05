@@ -1,8 +1,10 @@
 import s from './MovieDetailsPage.module.css'
-import {NavLink, Outlet, useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
+import { Suspense } from 'react';
+import {NavLink, Outlet, useLocation, useParams} from "react-router-dom";
+import {useEffect, useRef, useState} from "react";
 import {fetchMovieById} from "../../services/api.js";
 import clsx from "clsx";
+import BackLink from "../../components/BackLink/BackLink.jsx";
 
 function MovieDetailsPage() {
     const {movieId} = useParams();
@@ -10,10 +12,14 @@ function MovieDetailsPage() {
     const [year, setYear] = useState(0);
     const [genres, setGenres] = useState([]);
 
+    const location = useLocation();
+    const backLink = useRef(location.state ?? '/movies');
+
 
     useEffect(() => {
-        const abortController = new AbortController();
         if (!movieId) return;
+        const abortController = new AbortController();
+
         const getData = async () => {
             try {
                 const data = await fetchMovieById(movieId, abortController.signal);
@@ -36,11 +42,11 @@ function MovieDetailsPage() {
         return clsx(s.link, isActive && s.active)
     }
     const defaultImg =
-        "<https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg>";
+        "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
 
     return (
-        <div>
-            <button>Go Back</button>
+        <div className={s.details}>
+            <BackLink to={backLink.current}>Go Back</BackLink>
             <div className={s.container}>
                 <img src={
                     movie.backdrop_path
@@ -59,13 +65,15 @@ function MovieDetailsPage() {
                     </ul>
                 </div>
             </div>
-            <div>
-                <p>Additional information</p>
-                <nav>
+            <div className={s.moreInfo}>
+                <h3>Additional information</h3>
+                <nav className={s.nav}>
                     <NavLink to='cast' className={setActiveLink}>Cast</NavLink>
                     <NavLink to='reviews' className={setActiveLink}>Reviews</NavLink>
                 </nav>
-                <Outlet/>
+                <Suspense fallback={<p>Loading subpage..</p>}>
+                    <Outlet/>
+                </Suspense>
             </div>
         </div>
     );
